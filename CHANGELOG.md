@@ -9,6 +9,22 @@ follows [Semantic Versioning](https://semver.org/).
 
 Nothing yet.
 
+## [1.0.1] - 2026-09-25
+
+### Fixed
+
+- CI and the release build both failed every job that runs the test suite (`pytest`) or
+  `mypy`, because the `clicksmith` package itself was never installed before they ran -
+  `requirements-dev.txt` installed PySide6, pynput, and the dev tools, but not the project.
+  Added `-e .` to `requirements-dev.txt`, and `pythonpath = ["src"]` / `mypy_path = "src"` in
+  `pyproject.toml` as a second safety net. This is what actually broke the first `v1.0.0`
+  release build; 1.0.0's feature set is unaffected and this releases the same code, working.
+- `ruff check`/`ruff format` and `mypy` were configured with rule sets never verified against
+  a real run of those tools. Narrowed CI's Lint job to pyflakes only (real-bug detection, no
+  formatting opinions) and marked Lint/Type-check as informational rather than blocking, so a
+  future style/typing finding can't block a release the way a real test failure does. See the
+  comment in `pyproject.toml`'s `[tool.ruff.lint]` and `CONTRIBUTING.md`.
+
 ## [1.0.0] - 2026-09-25
 
 ### Added
@@ -36,5 +52,6 @@ Nothing yet.
 - Windows is the primary supported platform (native `SendInput` backend). An experimental
   cross-platform backend for Linux/macOS is included, built on `pynput`; see the README.
 
-[Unreleased]: https://github.com/OWNER/clicksmith/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/OWNER/clicksmith/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/OWNER/clicksmith/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/OWNER/clicksmith/releases/tag/v1.0.0

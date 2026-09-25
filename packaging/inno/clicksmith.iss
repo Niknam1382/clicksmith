@@ -8,7 +8,7 @@
 ; AppVersion is supplied on the command line by scripts\build_windows.ps1 and the release
 ; workflow (ISCC /DAppVersion=1.2.3 ...); the fallback below only matters for a manual build.
 #ifndef AppVersion
-  #define AppVersion "1.0.0"
+  #define AppVersion "1.0.1"
 #endif
 #define AppName "Clicksmith"
 #define AppPublisher "Clicksmith contributors"

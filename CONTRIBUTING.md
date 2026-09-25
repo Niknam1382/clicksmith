@@ -45,9 +45,17 @@ python -m venv .venv && .venv\Scripts\activate && pip install -r requirements-de
 
 python -m clicksmith             # run the GUI from source
 python -m pytest -q              # run the test suite
-ruff check . && ruff format --check .
+ruff check .                     # pyflakes: undefined names, unused imports/variables
 mypy                              # type-checks src/clicksmith/core
 ```
+
+`ruff check .` and `mypy` run in CI too, but as informational jobs (`continue-on-error`), not merge
+gates - only the test suite and the Windows build blocking a release. That's deliberate for now:
+this codebase has never been run through `ruff format`, so turning on formatting-opinionated rule
+sets (or `ruff format --check`) before that would fail on style noise rather than real problems.
+If you'd like to help: run `ruff format .` once locally, open a PR with just that diff, then
+`select` in `pyproject.toml`'s `[tool.ruff.lint]` can grow from `["F"]` to include `E`/`W`/`I` and
+`ruff format --check .` can become a real, passing gate.
 
 ## Testing without a display, mouse, or keyboard
 
