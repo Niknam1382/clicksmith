@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Cancel superseded runs on the same branch/PR so pushing twice doesn't burn double the minutes.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check .
+      - run: ruff format --check .
+
+  typecheck:
+    name: Type check (mypy)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      # Only src/clicksmith/core is type-checked (see [tool.mypy] in pyproject.toml): it is the
+      # GUI-free half of the codebase, so this needs no Qt platform plugin to run.
+      - run: mypy
+
+  test:
+    name: Test (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.12"]
+        include:
+          # The full supported Python range is exercised on Linux only, to keep the matrix small.
+          - os: ubuntu-latest
+            python-version: "3.11"
+          - os: ubuntu-latest
+            python-version: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      # Qt's "offscreen" platform plugin (used for every test below) still links against the
+      # real X11/EGL client libraries on Linux; GitHub's ubuntu-latest image does not ship them.
+      - name: Install Qt runtime libraries
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libegl1 libxkbcommon0 libxcb-cursor0 libxcb-icccm4 libxcb-image0 \
+            libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xinerama0
+      - run: pip install -r requirements-dev.txt
+      - name: Run the test suite
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: pytest -q --durations=10
+
+  windows-build-smoke:
+    name: Windows build smoke test
+    runs-on: windows-latest
+    needs: [lint, test]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python packaging\pyinstaller\generate_version_info.py
+      - name: Build with PyInstaller
+        run: >
+          pyinstaller packaging\pyinstaller\clicksmith.spec --noconfirm
+          --distpath packaging\pyinstaller\dist --workpath packaging\pyinstaller\build
+      - name: Run the frozen self-test
+        run: .\packaging\pyinstaller\dist\Clicksmith\Clicksmith.exe --selftest

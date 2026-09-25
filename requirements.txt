@@ -1,0 +1,4 @@
+# Runtime dependencies, pinned to the exact versions Clicksmith is built and tested against.
+# (pyproject.toml declares the looser ranges other projects may install this package under.)
+PySide6==6.11.2
+pynput==1.8.2

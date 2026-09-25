@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "name": "Slow auto-scroll",
+  "mode": "macro",
+  "interval": {
+    "hours": 0,
+    "minutes": 0,
+    "seconds": 2,
+    "millis": 0,
+    "jitter_pct": 0
+  },
+  "click": {
+    "button": "left",
+    "clicks": 1,
+    "hold_ms": 0
+  },
+  "target": {
+    "mode": "cursor",
+    "x": 0,
+    "y": 0,
+    "x2": 0,
+    "y2": 0,
+    "jitter_px": 0
+  },
+  "stop": {
+    "mode": "duration",
+    "count": 100,
+    "duration_s": 300
+  },
+  "safety": {
+    "failsafe_corner": true,
+    "stop_on_mouse_move": false,
+    "prevent_sleep": true,
+    "start_delay_s": 3
+  },
+  "steps": [
+    {
+      "type": "scroll",
+      "x": 0,
+      "y": 0,
+      "x2": 0,
+      "y2": 0,
+      "use_cursor": true,
+      "button": "left",
+      "clicks": 1,
+      "hold_ms": 0,
+      "duration_ms": 0,
+      "dx": 0,
+      "dy": -3,
+      "text": "",
+      "char_delay_ms": 20,
+      "keys": "",
+      "delay_after_ms": 0
+    }
+  ],
+  "schedule": {
+    "enabled": false,
+    "time": "09:00:00",
+    "days": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "once": true
+  }
+}

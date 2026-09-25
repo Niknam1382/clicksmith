@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "name": "Human-like area clicker",
+  "mode": "clicker",
+  "interval": {
+    "hours": 0,
+    "minutes": 0,
+    "seconds": 1,
+    "millis": 200,
+    "jitter_pct": 35
+  },
+  "click": {
+    "button": "left",
+    "clicks": 1,
+    "hold_ms": 40
+  },
+  "target": {
+    "mode": "area",
+    "x": 400,
+    "y": 300,
+    "x2": 560,
+    "y2": 380,
+    "jitter_px": 0
+  },
+  "stop": {
+    "mode": "count",
+    "count": 200,
+    "duration_s": 60
+  },
+  "safety": {
+    "failsafe_corner": true,
+    "stop_on_mouse_move": true,
+    "prevent_sleep": true,
+    "start_delay_s": 3
+  },
+  "steps": [],
+  "schedule": {
+    "enabled": false,
+    "time": "09:00:00",
+    "days": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "once": true
+  }
+}

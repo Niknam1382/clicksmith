@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "name": "Fast clicker (20 per second)",
+  "mode": "clicker",
+  "interval": {
+    "hours": 0,
+    "minutes": 0,
+    "seconds": 0,
+    "millis": 50,
+    "jitter_pct": 10
+  },
+  "click": {
+    "button": "left",
+    "clicks": 1,
+    "hold_ms": 0
+  },
+  "target": {
+    "mode": "cursor",
+    "x": 0,
+    "y": 0,
+    "x2": 0,
+    "y2": 0,
+    "jitter_px": 0
+  },
+  "stop": {
+    "mode": "infinite",
+    "count": 100,
+    "duration_s": 60
+  },
+  "safety": {
+    "failsafe_corner": true,
+    "stop_on_mouse_move": false,
+    "prevent_sleep": true,
+    "start_delay_s": 3
+  },
+  "steps": [],
+  "schedule": {
+    "enabled": false,
+    "time": "09:00:00",
+    "days": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "once": true
+  }
+}

@@ -1,0 +1,12 @@
+-r requirements.txt
+
+# Testing
+pytest==8.3.4
+coverage==7.6.10
+
+# Static analysis
+ruff==0.9.4
+mypy==1.14.1
+
+# Packaging
+pyinstaller==6.20.0

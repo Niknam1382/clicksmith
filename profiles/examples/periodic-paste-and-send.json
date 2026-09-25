@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "name": "Periodic paste and send",
+  "mode": "macro",
+  "interval": {
+    "hours": 5,
+    "minutes": 1,
+    "seconds": 0,
+    "millis": 0,
+    "jitter_pct": 0
+  },
+  "click": {
+    "button": "left",
+    "clicks": 1,
+    "hold_ms": 0
+  },
+  "target": {
+    "mode": "cursor",
+    "x": 0,
+    "y": 0,
+    "x2": 0,
+    "y2": 0,
+    "jitter_px": 0
+  },
+  "stop": {
+    "mode": "infinite",
+    "count": 100,
+    "duration_s": 60
+  },
+  "safety": {
+    "failsafe_corner": true,
+    "stop_on_mouse_move": false,
+    "prevent_sleep": true,
+    "start_delay_s": 3
+  },
+  "steps": [
+    {
+      "type": "click",
+      "x": 640,
+      "y": 120,
+      "x2": 0,
+      "y2": 0,
+      "use_cursor": false,
+      "button": "left",
+      "clicks": 1,
+      "hold_ms": 0,
+      "duration_ms": 0,
+      "dx": 0,
+      "dy": 0,
+      "text": "",
+      "char_delay_ms": 20,
+      "keys": "",
+      "delay_after_ms": 800
+    },
+    {
+      "type": "click",
+      "x": 640,
+      "y": 700,
+      "x2": 0,
+      "y2": 0,
+      "use_cursor": false,
+      "button": "left",
+      "clicks": 1,
+      "hold_ms": 0,
+      "duration_ms": 0,
+      "dx": 0,
+      "dy": 0,
+      "text": "",
+      "char_delay_ms": 20,
+      "keys": "",
+      "delay_after_ms": 400
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "x2": 0,
+      "y2": 0,
+      "use_cursor": false,
+      "button": "left",
+      "clicks": 1,
+      "hold_ms": 0,
+      "duration_ms": 0,
+      "dx": 0,
+      "dy": 0,
+      "text": "Hello 👋\nسلام! این یک پیام خودکار است.",
+      "char_delay_ms": 30,
+      "keys": "",
+      "delay_after_ms": 500
+    },
+    {
+      "type": "click",
+      "x": 1180,
+      "y": 700,
+      "x2": 0,
+      "y2": 0,
+      "use_cursor": false,
+      "button": "left",
+      "clicks": 1,
+      "hold_ms": 0,
+      "duration_ms": 0,
+      "dx": 0,
+      "dy": 0,
+      "text": "",
+      "char_delay_ms": 20,
+      "keys": "",
+      "delay_after_ms": 300
+    }
+  ],
+  "schedule": {
+    "enabled": false,
+    "time": "09:00:00",
+    "days": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "once": true
+  }
+}
