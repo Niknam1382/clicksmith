@@ -1,7 +1,7 @@
 # Building Clicksmith.exe
 
 You do not need to do this to use Clicksmith - grab a build from the
-[Releases page](https://github.com/OWNER/clicksmith/releases) instead. This is for building it
+[Releases page](https://github.com/Niknam1382/clicksmith/releases) instead. This is for building it
 yourself, or hacking on the packaging.
 
 ## Requirements
@@ -16,7 +16,7 @@ yourself, or hacking on the packaging.
 ## One command
 
 ```powershell
-git clone https://github.com/OWNER/clicksmith.git
+git clone https://github.com/Niknam1382/clicksmith.git
 cd clicksmith
 .\scripts\build_windows.ps1
 ```

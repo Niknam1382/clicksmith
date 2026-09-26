@@ -37,7 +37,7 @@ You can edit and run the test suite on Linux, macOS, or Windows; building `Click
 itself requires Windows (see [docs/BUILDING.md](docs/BUILDING.md)).
 
 ```bash
-git clone https://github.com/OWNER/clicksmith.git
+git clone https://github.com/Niknam1382/clicksmith.git
 cd clicksmith
 ./scripts/dev_setup.sh          # Linux/macOS
 # or, on Windows:

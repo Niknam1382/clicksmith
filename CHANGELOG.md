@@ -64,7 +64,7 @@ Nothing yet.
 - Windows is the primary supported platform (native `SendInput` backend). An experimental
   cross-platform backend for Linux/macOS is included, built on `pynput`; see the README.
 
-[Unreleased]: https://github.com/OWNER/clicksmith/compare/v1.0.2...HEAD
-[1.0.2]: https://github.com/OWNER/clicksmith/compare/v1.0.1...v1.0.2
-[1.0.1]: https://github.com/OWNER/clicksmith/compare/v1.0.0...v1.0.1
-[1.0.0]: https://github.com/OWNER/clicksmith/releases/tag/v1.0.0
+[Unreleased]: https://github.com/Niknam1382/clicksmith/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/Niknam1382/clicksmith/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/Niknam1382/clicksmith/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/Niknam1382/clicksmith/releases/tag/v1.0.0

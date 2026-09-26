@@ -12,7 +12,7 @@
 #endif
 #define AppName "Clicksmith"
 #define AppPublisher "Clicksmith contributors"
-#define AppURL "https://github.com/OWNER/clicksmith"
+#define AppURL "https://github.com/Niknam1382/clicksmith"
 #define DistDir "..\pyinstaller\dist\Clicksmith"
 
 [Setup]

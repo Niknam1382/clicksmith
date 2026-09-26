@@ -38,10 +38,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/OWNER/clicksmith"
-Repository = "https://github.com/OWNER/clicksmith"
-Issues = "https://github.com/OWNER/clicksmith/issues"
-Changelog = "https://github.com/OWNER/clicksmith/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/Niknam1382/clicksmith"
+Repository = "https://github.com/Niknam1382/clicksmith"
+Issues = "https://github.com/Niknam1382/clicksmith/issues"
+Changelog = "https://github.com/Niknam1382/clicksmith/blob/main/CHANGELOG.md"
 
 [project.scripts]
 clicksmith = "clicksmith.cli:main"

@@ -7,14 +7,14 @@
 **Forge your clicks.** An open-source auto clicker, macro recorder, Unicode typer, and
 scheduler for Windows - all in one tool, with a real test suite behind it.
 
-[![CI](https://github.com/OWNER/clicksmith/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/clicksmith/actions/workflows/ci.yml)
-[![Latest release](https://img.shields.io/github/v/release/OWNER/clicksmith?label=release)](https://github.com/OWNER/clicksmith/releases/latest)
+[![CI](https://github.com/Niknam1382/clicksmith/actions/workflows/ci.yml/badge.svg)](https://github.com/Niknam1382/clicksmith/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/Niknam1382/clicksmith?label=release)](https://github.com/Niknam1382/clicksmith/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
 [![PySide6](https://img.shields.io/badge/UI-PySide6%20(Qt6)-41cd52.svg)](https://doc.qt.io/qtforpython/)
 [![Platform: Windows](https://img.shields.io/badge/platform-Windows-0078D6.svg)](docs/BUILDING.md)
 
-[Download](https://github.com/OWNER/clicksmith/releases/latest) ·
+[Download](https://github.com/Niknam1382/clicksmith/releases/latest) ·
 [Features](#-features) ·
 [Why Clicksmith](#-why-clicksmith) ·
 [Docs](docs/) ·
@@ -76,7 +76,7 @@ scheduler for Windows - all in one tool, with a real test suite behind it.
 
 ## 📦 Download
 
-Grab the latest release from the **[Releases page](https://github.com/OWNER/clicksmith/releases/latest)**:
+Grab the latest release from the **[Releases page](https://github.com/Niknam1382/clicksmith/releases/latest)**:
 
 | File | Use this if... |
 | --- | --- |
@@ -177,7 +177,7 @@ when pointed at a game or service that forbids it. That line is yours to know an
 ## 🏗 Building from source
 
 ```powershell
-git clone https://github.com/OWNER/clicksmith.git
+git clone https://github.com/Niknam1382/clicksmith.git
 cd clicksmith
 python -m venv .venv && .venv\Scripts\activate
 pip install -r requirements-dev.txt
@@ -224,8 +224,8 @@ repository - they're installed as ordinary dependencies (see `requirements.txt`)
 
 If Clicksmith is useful to you, consider starring the repo - it helps other people find it.
 
-<a href="https://star-history.com/#OWNER/clicksmith&Date">
-  <img src="https://api.star-history.com/svg?repos=OWNER/clicksmith&type=Date" width="500" alt="Star history chart">
+<a href="https://star-history.com/#Niknam1382/clicksmith&Date">
+  <img src="https://api.star-history.com/svg?repos=Niknam1382/clicksmith&type=Date" width="500" alt="Star history chart">
 </a>
 
 </div>
