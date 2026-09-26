@@ -9,6 +9,18 @@ follows [Semantic Versioning](https://semver.org/).
 
 Nothing yet.
 
+## [1.0.2] - 2026-09-25
+
+### Fixed
+
+- `packaging/pyinstaller/clicksmith.spec` was missing its `COLLECT()` step, so PyInstaller built
+  a single-file exe directly at `dist/Clicksmith.exe` instead of the `dist/Clicksmith/` folder
+  (with an `_internal/` subfolder) that the Inno Setup script, the release zip step, and the
+  `--selftest` path everywhere else in the pipeline all expect. That mismatch is what made both
+  `windows-build-smoke` and the release build fail right after a successful test run. Fixed by
+  adding the `COLLECT()` call, which also means Clicksmith now starts instantly instead of
+  self-extracting on every launch (the actual benefit of a onedir build for a Qt app).
+
 ## [1.0.1] - 2026-09-25
 
 ### Fixed
@@ -52,6 +64,7 @@ Nothing yet.
 - Windows is the primary supported platform (native `SendInput` backend). An experimental
   cross-platform backend for Linux/macOS is included, built on `pynput`; see the README.
 
-[Unreleased]: https://github.com/OWNER/clicksmith/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/OWNER/clicksmith/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/OWNER/clicksmith/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/OWNER/clicksmith/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/OWNER/clicksmith/releases/tag/v1.0.0

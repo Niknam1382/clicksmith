@@ -57,12 +57,15 @@ a = Analysis(
 
 pyz = PYZ(a.pure)
 
+# exclude_binaries=True + the COLLECT() below is what makes this a "onedir" build: a
+# dist/Clicksmith/ folder holding Clicksmith.exe plus an _internal/ folder of DLLs and data,
+# rather than a single self-extracting exe. Onedir starts instantly (nothing to unpack on
+# every launch) and is what packaging/inno/clicksmith.iss and the CI workflows expect.
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
-    a.datas,
     [],
+    exclude_binaries=True,
     name="Clicksmith",
     version=str(ROOT / "packaging" / "pyinstaller" / "version_info.txt"),
     icon=str(ASSETS / "icon.ico"),
@@ -76,4 +79,14 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+)
+
+COLLECT(
+    exe,
+    a.binaries,
+    a.datas,
+    strip=False,
+    upx=False,
+    upx_exclude=[],
+    name="Clicksmith",
 )

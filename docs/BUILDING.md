@@ -44,7 +44,7 @@ pyinstaller packaging\pyinstaller\clicksmith.spec --noconfirm
 .\packaging\pyinstaller\dist\Clicksmith\Clicksmith.exe --selftest
 
 # Optional installer:
-& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DAppVersion=1.0.1 packaging\inno\clicksmith.iss
+& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DAppVersion=1.0.2 packaging\inno\clicksmith.iss
 ```
 
 ## How a release actually gets published
